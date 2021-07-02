@@ -22,6 +22,10 @@ public class Pessoa implements Comparable<Pessoa> {
         this.cidade = cidade;
         this.id = id;
 
+        if(dataNascimento == null) {
+            throw new IllegalArgumentException("A data de nascimento nao pode ser nula");
+        }
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dataNascimento);
         int anoNascimento = calendar.get(Calendar.YEAR);
@@ -51,7 +55,7 @@ public class Pessoa implements Comparable<Pessoa> {
     }
 
     public String getNome() {
-        return nome;
+        return nome ;
     }
 
     public Date getDataNascimento() {
